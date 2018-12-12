@@ -13,7 +13,7 @@ class DeleteContact extends React.Component {
               <p>{contact.name}</p>
             </div>
             <div class="btn-group justify-content-between">
-              <button className="btn btn-light m-2" onClick={() => this.props.destroyConfirmation()}>
+              <button className="btn btn-light m-2" onClick={() => this.props.destroyDeleteComponent()}>
                 Zrušit
             </button>
               <button className="btn btn-danger m-2"

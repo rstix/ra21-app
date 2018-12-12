@@ -9,20 +9,22 @@ class ShowContact extends React.Component {
       <>
         <div className='card d-inline-flex justify-content-center card-contact m-2'>
           <div className='card-body'>
-            <div className='card-title d-inline-flex'>
-              <h5> {contact.name}</h5>
-              <button className="btn" onClick={() => this.props.addToEdit(this.props.index)}>
-                <FontAwesomeIcon icon={faPen} />
-              </button>
-              <button className="btn" onClick={() => this.props.addToDelete(this.props.index)}>
-                <FontAwesomeIcon icon={faTrashAlt} />
-              </button>
+            <div className='card-title d-flex justify-content-between'>
+              <h4 className="align-self-center mb-0"> {contact.name}</h4>
+              <div>
+                <button className="btn" onClick={() => this.props.addToEdit(this.props.index)}>
+                  <FontAwesomeIcon icon={faPen} />
+                </button>
+                <button className="btn" onClick={() => this.props.addToDelete(this.props.index)}>
+                  <FontAwesomeIcon icon={faTrashAlt} />
+                </button>
+              </div>
             </div>
-            <ul className='list-group list-group-flush'>
-              <li className='list-group-item'>{contact.email}</li>
-              <li className='list-group-item'>{contact.phone ? contact.phone : ""}</li>
 
-            </ul>
+            <p className='text-left'>{contact.email}</p>
+            <p className='text-left'>{contact.phone ? contact.phone : ""}</p>
+
+
           </div>
         </div>
       </>
