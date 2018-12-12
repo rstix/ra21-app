@@ -16,11 +16,11 @@ class EditForm extends React.Component {
     e.currentTarget.reset()
   }
 
-  render () {
+  render() {
     return (
       <div>
         {this.props.contact && (
-          <div className='card d-inline-flex justify-content-center'>
+          <div className='card d-inline-flex justify-content-center m-2'>
             <div className='card-body'>
               <form onSubmit={this.updateContact}>
                 <div className='form-group'>
