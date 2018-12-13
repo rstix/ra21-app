@@ -21,6 +21,20 @@ code {
   width: 18rem;
 }
 
-.card-contact{
+.card-contact {
   width: 14rem;
+}
+
+.edit-buttons {
+  align-self: center;
+  opacity: 0;
+  transition: 200ms all;
+}
+
+.edit-buttons * {
+  cursor: pointer;
+}
+
+.card-contact:hover .edit-buttons {
+  opacity: 1;
 }

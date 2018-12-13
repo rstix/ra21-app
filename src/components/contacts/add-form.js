@@ -1,56 +1,40 @@
 import React from 'react'
+import Form from './form'
 
 class AddForm extends React.Component {
   nameRef = React.createRef()
   emailRef = React.createRef()
   phoneRef = React.createRef()
 
-  createContact = e => {
-    e.preventDefault()
-
+  createContact = () => {
     const contact = {
       name: this.nameRef.current.value,
       email: this.emailRef.current.value,
       phone: parseInt(this.phoneRef.current.value)
     }
     this.props.addContact(contact)
-    e.currentTarget.reset()
+
+    this.nameRef.current.value = ''
+    this.emailRef.current.value = ''
+    this.phoneRef.current.value = ''
   }
 
   render () {
     return (
       <div className='card d-inline-flex justify-content-center'>
         <div className='card-body'>
-          <form onSubmit={this.createContact}>
-            <div className='form-group'>
-              <input
-                type='text'
-                className='form-control'
-                placeholder='Jméno'
-                ref={this.nameRef}
-                required
-              />
-            </div>
-            <div className='form-group'>
-              <input
-                type='email'
-                className='form-control'
-                placeholder='Email'
-                ref={this.emailRef}
-              />
-            </div>
-            <div className='form-group'>
-              <input
-                type='number'
-                className='form-control'
-                placeholder='Tel. číslo'
-                ref={this.phoneRef}
-              />
-            </div>
-            <button type='submit' className='btn btn-primary'>
-              Přidat
-            </button>
-          </form>
+          <Form
+            nameRef={this.nameRef}
+            emailRef={this.emailRef}
+            phoneRef={this.phoneRef}
+          />
+          <button
+            type='submit'
+            className='btn btn-primary'
+            onClick={this.createContact}
+          >
+            Přidat
+          </button>
         </div>
       </div>
     )
