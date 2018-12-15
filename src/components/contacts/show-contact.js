@@ -25,7 +25,6 @@ class ShowContact extends React.Component {
                 />
               </div>
             </div>
-
             <p className='text-left'>{contact.email}</p>
             <p className='text-left'>{contact.phone ? contact.phone : ''}</p>
           </div>

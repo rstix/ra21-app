@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
+
 import AddForm from './add-form'
 import ShowContact from './show-contact'
 import DeleteContact from './delete-contact'
 import EditForm from './edit-form'
 
 class Contact extends Component {
-  state = {
-    contacts: {},
-    contactToEdit: null,
-    editOrDelete: null
+  constructor (props) {
+    super(props)
+    this.state = {
+      contacts: {},
+      contactToEdit: null,
+      editOrDelete: null
+    }
   }
 
   addContact = contact => {
@@ -23,21 +27,11 @@ class Contact extends Component {
     this.setState({ editOrDelete: null })
   }
 
-  // destroyDeleteComponent = () => {
-  //     this.setState({ contactToDelete: null })
-  // }
-
   addToEdit = (key, ed) => {
     const contactToEdit = this.state.contacts[key]
     contactToEdit['key'] = key
     this.setState({ contactToEdit, editOrDelete: ed })
   }
-
-  // addToDelete = key => {
-  //     const contactToDelete = this.state.contacts[key]
-  //     contactToDelete['key'] = key
-  //     this.setState({ contactToDelete })
-  // }
 
   updateContact = (key, updatedContact) => {
     const contacts = { ...this.state.contacts }
@@ -76,13 +70,14 @@ class Contact extends Component {
           updateContact={this.updateContact}
           edit={this.state.editOrDelete}
           contact={this.state.contactToEdit}
-          destroyEditComponent={this.destroyComponent}
+          destroyComponent={this.destroyComponent}
         />
+
         <DeleteContact
           delete={this.state.editOrDelete}
           contact={this.state.contactToEdit}
           deleteContact={this.deleteContact}
-          destroyDeleteComponent={this.destroyComponent}
+          destroyComponent={this.destroyComponent}
         />
       </div>
     )

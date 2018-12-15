@@ -18,7 +18,7 @@ class EditForm extends React.Component {
   render () {
     return (
       <div>
-        {this.props.edit == 'edit' && (
+        {this.props.edit === 'edit' && (
           <div className='card d-inline-flex justify-content-center m-2'>
             <div className='card-body'>
               <Form
@@ -26,15 +26,15 @@ class EditForm extends React.Component {
                 emailRef={this.emailRef}
                 phoneRef={this.phoneRef}
               />
-              <div class='btn-group justify-content-between'>
+              <div className='d-flex justify-content-between'>
                 <button
-                  className='btn btn-light m-2'
-                  onClick={() => this.props.destroyEditComponent(true)}
+                  className='btn btn-outline-dark'
+                  onClick={() => this.props.destroyComponent()}
                 >
                   Zrušit
                 </button>
                 <button
-                  className='btn btn-danger m-2'
+                  className='btn btn-primary'
                   onClick={this.updateContact}
                 >
                   Ok
